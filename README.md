@@ -1,8 +1,26 @@
-# High Growth Leader™ V11
+# High Growth Leader™ V11 + V8 Course Portal
 
 Commercial validation and product-architecture prototype for the High Growth Leader™ adaptive leadership development system.
 
-## V11 experience
+## V8 — Adaptive Course Portal
+
+A dedicated learner course experience is available at **[`course.html`](./course.html)**.
+
+V8 course portal features:
+- Diagnostic questionnaire and pathway recommendation
+- Adaptive pathways: System Builder, AI-Powered Leader, People Multiplier and Scale Leader
+- Full 12-module / 36-lesson academy map
+- Lesson viewer with teaching, workplace application and AI practice
+- Learner evidence capture and lesson completion
+- Locally saved learner progress
+- Evidence portfolio
+- 30-Day Step-Away Challenge™ checkpoints
+- Demo Day structure and System Builder rubric
+- Learner-record JSON export
+
+## V11 — Main platform prototype
+
+The main site at `index.html` remains the V11 product architecture and commercial validation experience.
 
 ### Learner
 - Six-dimension High Growth Leadership Index™
@@ -18,7 +36,7 @@ Commercial validation and product-architecture prototype for the High Growth Lea
 - Learner-record JSON export
 
 ### Facilitator / Admin
-- admin.html provides a cohort-level demonstration console
+- `admin.html` provides a cohort-level demonstration console
 - Pathway distribution
 - Evidence review queue
 - Demo Day pipeline
@@ -26,19 +44,17 @@ Commercial validation and product-architecture prototype for the High Growth Lea
 - Permission model for learner, facilitator, programme admin and system admin
 
 ### Reviewer
-- feedback.html provides an external validation experience focused on proposition, diagnosis, personalisation, evidence governance, facilitation and commercial viability.
+- `feedback.html` provides an external validation experience focused on proposition, diagnosis, personalisation, evidence governance, facilitation and commercial viability.
 
 ## Important prototype boundary
 
-V11 is intentionally static and backend-free.
+Both V8 course portal and V11 platform are static, backend-free prototypes. Learner state is stored only in the current browser using localStorage. No learner data is transmitted to a server. The facilitator console uses demonstration data and is not connected to individual learner records.
 
-The learner record is persisted only in the browser using localStorage. No learner data is transmitted to a server. The facilitator console uses demonstration data and is not connected to individual learner records.
+Do not use these static prototypes for real learner records, sensitive data or live certification decisions.
 
-This makes V11 safe for demonstrations while keeping the product architecture clear.
+## Production boundary
 
-## V12 production boundary
-
-The next production layer should introduce:
+A production release still needs:
 1. Authentication and role-based access control
 2. Secure database-backed learner, cohort and pathway records
 3. Secure evidence/file storage
@@ -52,13 +68,13 @@ The next production layer should introduce:
 11. AI-powered diagnostic explanation and personalised recommendations
 12. Privacy, consent, retention and deletion controls
 13. Accessibility and security testing
+14. Target-LMS mapping and course import testing
 
 ## Static deployment
 
-index.html is the learner entry point.
-
-admin.html is the facilitator/admin demonstration.
-
-feedback.html is the external reviewer experience.
+- `index.html` — main V11 learner/product prototype
+- `course.html` — V8 adaptive course portal
+- `admin.html` — facilitator/admin demonstration
+- `feedback.html` — external reviewer experience
 
 The existing GitHub Pages workflow deploys the repository as a static site.
