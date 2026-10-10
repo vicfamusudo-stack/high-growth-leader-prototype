@@ -1,6 +1,16 @@
-# High Growth Leader™ V11 + V8 Course Portal
+# High Growth Leader™ V11 + V9 Deep Learning Academy + V8 Portal
 
 Commercial validation and product-architecture prototype for the High Growth Leader™ adaptive leadership development system.
+
+## V9 — Deep Learning Academy
+
+A new expanded learning experience is available at **[`course-v9.html`](./course-v9.html)**.
+
+V9 raises the teaching standard with full concept explanations, realistic worked examples, guided workplace application, common failure modes, knowledge checks with rationales, and evidence capture across 39 lessons. It retains the original 12 leadership modules and adds a complete 13th module: **Design, Build and Scale Your Digital Learning System**.
+
+The new module teaches learners to convert classroom courses and smaller CPD sessions into effective digital/blended learning, design lesson and assessment production pipelines, select platform capabilities, govern learner operations, validate CPD requirements, measure outcomes, and assess commercial sustainability.
+
+The V9 page is still a static prototype: progress and notes are saved locally in the browser; it is not a production LMS or accredited CPD service.
 
 ## V8 — Adaptive Course Portal
 
@@ -73,6 +83,7 @@ A production release still needs:
 ## Static deployment
 
 - `index.html` — main V11 learner/product prototype
+- `course-v9.html` — V9 deep learning academy with 13 modules / 39 expanded lessons
 - `course.html` — V8 adaptive course portal
 - `admin.html` — facilitator/admin demonstration
 - `feedback.html` — external reviewer experience
