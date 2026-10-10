@@ -4,17 +4,39 @@ Commercial validation and product-architecture prototype for the High Growth Lea
 
 ## V9 — Deep Learning Academy
 
-A new expanded learning experience is available at **[`course-v9.html`](./course-v9.html)**.
+A new expanded learning experience is available at **[course-v9.html](./course-v9.html)**.
 
 V9 raises the teaching standard with full concept explanations, realistic worked examples, guided workplace application, common failure modes, knowledge checks with rationales, and evidence capture across 42 lessons. It retains the original 12 leadership modules and adds a complete 13th module: **Design, Build and Scale Your Digital Learning System**.
 
 The new module teaches learners to convert classroom courses and professional development workshops into effective digital/blended learning, map modules to observable outcomes, compare learner-platform options, design immersive interactions, build assessment and quality-assurance pipelines, operate learner support, measure workplace transfer, and assess commercial sustainability.
 
-The V9 page is still a static prototype: progress and notes are saved locally in the browser; it is not a production LMS or an accredited learning service.
+## New pilot — Step-Away Test lesson
+
+The first lesson using the lighter, learner-first visual system is available at **[step-away-pilot.html](./step-away-pilot.html)**.
+
+The pilot includes:
+- Warm light backgrounds, high-contrast text and restrained teal accents
+- Clear learning outcomes and a concise concept explanation
+- Four risk categories: People, Process, Decisions and Knowledge
+- Cross-industry worked example
+- Animated faceless pen-writing style demonstration
+- Editable risk register with impact × dependency scoring
+- Scenario-based knowledge check with feedback
+- Seven-day workplace transfer experiment
+- Local browser saving and JSON export of learner work
+
+Companion Canva assets:
+- **[Module 13: Build Your Digital Learning System](https://canva.link/a00qanweybuflzi)**
+- **[Step-Away Test teaching deck](https://canva.link/8d4y9ayqai8io5i)**
+- **[Step-Away Risk Register worksheet](https://canva.link/o992919lxlgwf85)**
+
+The separate MP4 companion is currently a downloadable prototype asset; the inline animation on the pilot lesson is the version hosted in the academy. The MP4 has not yet been uploaded to the public website.
+
+The V9 page and pilot are static prototypes: progress and notes are saved locally in the browser; they are not a production LMS or an accredited learning service.
 
 ## V8 — Adaptive Course Portal
 
-A dedicated learner course experience is available at **[`course.html`](./course.html)**.
+A dedicated learner course experience is available at **[course.html](./course.html)**.
 
 V8 course portal features:
 - Diagnostic questionnaire and pathway recommendation
@@ -58,7 +80,7 @@ The main site at `index.html` remains the V11 product architecture and commercia
 
 ## Important prototype boundary
 
-Both V8 course portal and V11 platform are static, backend-free prototypes. Learner state is stored only in the current browser using localStorage. No learner data is transmitted to a server. The facilitator console uses demonstration data and is not connected to individual learner records.
+V8 course portal, V9 academy, pilot lesson and V11 platform are static, backend-free prototypes. Learner state is stored only in the current browser using localStorage. No learner data is transmitted to a server. The facilitator console uses demonstration data and is not connected to individual learner records.
 
 Do not use these static prototypes for real learner records, sensitive data or live certification decisions.
 
@@ -83,7 +105,8 @@ A production release still needs:
 ## Static deployment
 
 - `index.html` — main V11 learner/product prototype
-- `course-v9.html` — V9 deep learning academy with 13 modules / 39 expanded lessons
+- `course-v9.html` — V9 deep learning academy with 13 modules / 42 lessons
+- `step-away-pilot.html` — light-theme pilot lesson with interactive practice and faceless animation
 - `course.html` — V8 adaptive course portal
 - `admin.html` — facilitator/admin demonstration
 - `feedback.html` — external reviewer experience
