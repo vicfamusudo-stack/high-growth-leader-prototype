@@ -6,11 +6,11 @@ Commercial validation and product-architecture prototype for the High Growth Lea
 
 A new expanded learning experience is available at **[`course-v9.html`](./course-v9.html)**.
 
-V9 raises the teaching standard with full concept explanations, realistic worked examples, guided workplace application, common failure modes, knowledge checks with rationales, and evidence capture across 39 lessons. It retains the original 12 leadership modules and adds a complete 13th module: **Design, Build and Scale Your Digital Learning System**.
+V9 raises the teaching standard with full concept explanations, realistic worked examples, guided workplace application, common failure modes, knowledge checks with rationales, and evidence capture across 42 lessons. It retains the original 12 leadership modules and adds a complete 13th module: **Design, Build and Scale Your Digital Learning System**.
 
-The new module teaches learners to convert classroom courses and smaller CPD sessions into effective digital/blended learning, design lesson and assessment production pipelines, select platform capabilities, govern learner operations, validate CPD requirements, measure outcomes, and assess commercial sustainability.
+The new module teaches learners to convert classroom courses and professional development workshops into effective digital/blended learning, map modules to observable outcomes, compare learner-platform options, design immersive interactions, build assessment and quality-assurance pipelines, operate learner support, measure workplace transfer, and assess commercial sustainability.
 
-The V9 page is still a static prototype: progress and notes are saved locally in the browser; it is not a production LMS or accredited CPD service.
+The V9 page is still a static prototype: progress and notes are saved locally in the browser; it is not a production LMS or an accredited learning service.
 
 ## V8 — Adaptive Course Portal
 
