@@ -140,3 +140,11 @@ Use UTM-tagged bio links and, where available, privacy-conscious analytics. Opti
 **Gate B — ready to invite sign-ups:** lead endpoint connected, privacy notice/contact details published, submissions tested, notification/review process working.
 
 **Gate C — ready to scale:** baseline data collected, audience-message fit reviewed, qualified leads engaged, and paid spend considered only if organic validation supports it.
+
+
+## Editable Canva assets
+
+- **Six-page Instagram carousel — “Your business has a bottleneck”**: https://canva.link/mt2egzei22yvwk5
+- **Vertical Instagram Reel cover — “Your business has a bottleneck”**: https://canva.link/4xr6zydjq2uu7bo
+
+Review all wording, typography and mobile legibility in Canva before export. The carousel is intended as an awareness/education post; the Reel cover pairs with the Day 1 founder-bottleneck script above. These are creative drafts, not published Instagram posts.
