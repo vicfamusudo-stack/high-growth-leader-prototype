@@ -1,0 +1,7 @@
+{
+  "name": "high-growth-leader-v13",
+  "private": true,
+  "version": "13.0.0",
+  "type": "module",
+  "scripts": { "test": "node --test tests/*.test.mjs", "check": "node scripts/check.mjs" }
+}

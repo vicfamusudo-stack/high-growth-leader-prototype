@@ -1,141 +1,44 @@
-# High Growth Leader™ V11 + V9 Deep Learning Academy + V8 Portal
+# High Growth Leader™ V13
 
-Commercial validation and product-architecture prototype for the High Growth Leader™ adaptive leadership development system.
+Structured production-build foundation for the High Growth Leader adaptive leadership programme. V13 turns the V12 single-page prototype into a small module-based static learner app and defines the service, data, workflow, migration and release seams a developer can extend.
 
-## V9 — Deep Learning Academy
+## Start here
 
-A new expanded learning experience is available at **[course-v9.html](./course-v9.html)**.
+Requirements: Node.js 20+ for local checks; any static HTTP server for browser use. From the repository root run `npm test` and `npm run check`, then serve the root directory and open `index.html`. Browser-native modules require HTTP(S), not `file://`.
 
-V9 raises the teaching standard with full concept explanations, realistic worked examples, guided workplace application, common failure modes, knowledge checks with rationales, and evidence capture across 42 lessons. It retains the original 12 leadership modules and adds a complete 13th module: **Design, Build and Scale Your Digital Learning System**.
+The default `APP_MODE=demo` uses versioned browser localStorage. This is only a convenience for trying the flow. Do not enter confidential learner or business data. `src/config.js` validates the runtime mode. To select API mode, set `window.__HGL_CONFIG__ = { mode: 'api', apiBaseUrl: 'https://your-api.example' }` before `src/app.js` loads. Browser configuration is public; never put secrets or privileged credentials there.
 
-The new module teaches learners to convert classroom courses and professional development workshops into effective digital/blended learning, map modules to observable outcomes, compare learner-platform options, design immersive interactions, build assessment and quality-assurance pipelines, operate learner support, measure workplace transfer, and assess commercial sustainability.
+## Product surfaces
 
-## New pilot — Step-Away Test lesson
+- `index.html` — V13 learner workspace: diagnostic, pathway, module progress, evidence submission, Step-Away challenge and readiness gates.
+- `v12.html` — preserved V12 homepage snapshot.
+- `v11.html` — preserved V11 homepage.
+- `admin.html` — facilitator demonstration only; no access controls or connected learner data.
+- `feedback.html` — reviewer experience.
+- `course.html`, `course-v9.html`, `step-away-pilot.html` — earlier course prototypes.
 
-The first lesson using the lighter, learner-first visual system is available at **[step-away-pilot.html](./step-away-pilot.html)**.
+## Source layout
 
-The pilot includes:
-- Warm light backgrounds, high-contrast text and restrained teal accents
-- Clear learning outcomes and a concise concept explanation
-- Four risk categories: People, Process, Decisions and Knowledge
-- Cross-industry worked example
-- Animated faceless pen-writing style demonstration
-- Editable risk register with impact × dependency scoring
-- Scenario-based knowledge check with feedback
-- Seven-day workplace transfer experiment
-- Local browser saving and JSON export of learner work
+- `src/config.js` — demo/API mode and public runtime settings.
+- `src/contracts.js` — JSDoc data contracts, dimension names and transition map.
+- `src/scoring.js` — validated six-dimension heuristic and versioned route selection.
+- `src/workflow.js` — evidence state machine and readiness gate rules.
+- `src/service.js` — local demo adapter and API client seam.
+- `src/app.js`, `styles.css` — learner interface and responsive presentation.
+- `migrations/001_v13_workflow.sql` — PostgreSQL integration starting point.
+- `docs/PRODUCTION-FOUNDATION.md` — local setup, API contract, environment separation, migration and release steps.
+- `docs/V12-API.md` — existing V12 API/security baseline.
 
-Companion Canva assets:
-- **[Module 13: Build Your Digital Learning System](https://canva.link/a00qanweybuflzi)**
-- **[Step-Away Test teaching deck](https://canva.link/8d4y9ayqai8io5i)**
-- **[Step-Away Risk Register worksheet](https://canva.link/o992919lxlgwf85)**
+## Workflow and backend contract
 
-The separate MP4 companion is currently a downloadable prototype asset; the inline animation on the pilot lesson is the version hosted in the academy. The MP4 has not yet been uploaded to the public website.
+Diagnostic answers are integers from 1–5 for dependency, ownership, systems, transfer, scale and continuity. The deterministic route is explicitly heuristic, versioned in each result and not a validated psychometric measure. Evidence moves `submitted → in_review → approved | revise | rejected`; revision/rejection requires a rationale and resubmission returns to `submitted`. Client readiness requires a diagnostic, 12 modules, three approved evidence items, an approved challenge and approved Demo Day. Only a future trusted backend may authorize those states or issue a certificate.
 
-The V9 page and pilot are static prototypes: progress and notes are saved locally in the browser; they are not a production LMS or an accredited learning service.
+The adapter documents `GET /v1/learner/me`, `PUT /v1/learner/me`, `POST /v1/evidence` and the planned `POST /v1/diagnostics` seam. This repository does not include the API server. See the foundation guide before connecting one.
 
-## V8 — Adaptive Course Portal
+## Production readiness boundary
 
-A dedicated learner course experience is available at **[course.html](./course.html)**.
+This remains a static prototype. Real authentication, authorization, shared persistence, secure evidence storage, server-side facilitator review, AI, payments, email, analytics and certificate issuance are not implemented. The migration is a scaffold and has no production row-level policies. Before using real learner records, select an identity provider and backend, implement verified roles and tenant isolation, private storage, audited state transitions, retention/export/deletion, monitoring and backup/restore. Complete accessibility and security reviews before launch.
 
-V8 course portal features:
-- Diagnostic questionnaire and pathway recommendation
-- Adaptive pathways: System Builder, AI-Powered Leader, People Multiplier and Scale Leader
-- Full 12-module / 36-lesson academy map
-- Lesson viewer with teaching, workplace application and AI practice
-- Learner evidence capture and lesson completion
-- Locally saved learner progress
-- Evidence portfolio
-- 30-Day Step-Away Challenge™ checkpoints
-- Demo Day structure and System Builder rubric
-- Learner-record JSON export
+## Release
 
-## V11 — Main platform prototype
-
-The main site at `index.html` remains the V11 product architecture and commercial validation experience.
-
-### Learner
-- Six-dimension High Growth Leadership Index™
-- Evidence-based pathway recommendation: System Builder, Multiplier Leader, Strategic Leader
-- Local persistent learner state using browser localStorage
-- Profile, role, company and measurable growth outcome
-- Personalised dashboard
-- 12-module adaptive academy
-- Evidence submission and evidence status
-- Step-Away Challenge™ workflow
-- In-house Demo Day submission
-- Certification gates
-- Learner-record JSON export
-
-### Facilitator / Admin
-- `admin.html` provides a cohort-level demonstration console
-- Pathway distribution
-- Evidence review queue
-- Demo Day pipeline
-- Certification governance model
-- Permission model for learner, facilitator, programme admin and system admin
-
-### Reviewer
-- `feedback.html` provides an external validation experience focused on proposition, diagnosis, personalisation, evidence governance, facilitation and commercial viability.
-
-## Important prototype boundary
-
-V8 course portal, V9 academy, pilot lesson and V11 platform are static, backend-free prototypes. Learner state is stored only in the current browser using localStorage. No learner data is transmitted to a server. The facilitator console uses demonstration data and is not connected to individual learner records.
-
-Do not use these static prototypes for real learner records, sensitive data or live certification decisions.
-
-## Production boundary
-
-A production release still needs:
-1. Authentication and role-based access control
-2. Secure database-backed learner, cohort and pathway records
-3. Secure evidence/file storage
-4. Facilitator approval / revise / reject workflow
-5. Audit trail for evidence and certification decisions
-6. Real cohort management
-7. Email and calendar integrations
-8. Analytics and outcome measurement
-9. Payment / subscription infrastructure
-10. Certificate issuance and verification
-11. AI-powered diagnostic explanation and personalised recommendations
-12. Privacy, consent, retention and deletion controls
-13. Accessibility and security testing
-14. Target-LMS mapping and course import testing
-
-## Static deployment
-
-- `index.html` — main V11 learner/product prototype
-- `course-v9.html` — V9 deep learning academy with 13 modules / 42 lessons
-- `step-away-pilot.html` — light-theme pilot lesson with interactive practice and faceless animation
-- `course.html` — V8 adaptive course portal
-- `admin.html` — facilitator/admin demonstration
-- `feedback.html` — external reviewer experience
-
-The existing GitHub Pages workflow deploys the repository as a static site.
-
-
-## V12 — Product MVP architecture (current main experience)
-
-The homepage `index.html` is now the V12 adaptive leadership system prototype. The previous V11 homepage is preserved at `v11.html`.
-
-### V12 learner experience
-- Six-dimension leadership diagnostic and explainable heuristic pathway routing
-- System Builder, Multiplier Leader and Strategic Leader sequences
-- Profile, growth outcome, next-best-action dashboard and 12-module academy
-- Evidence register with explicit submitted/review/approved/revise/rejected states
-- 30-Day Step-Away Challenge™ and Demo Day submission
-- Certification gate preview, learner-record JSON export and local-data deletion
-- Local consent preference demonstration and privacy boundary disclosure
-- Responsive, keyboard-focusable navigation and form controls
-
-### V12 product architecture pack
-- `backend/schema.sql` — PostgreSQL schema for identity profiles, cohorts, memberships, versioned diagnostics, evidence, challenge, Demo Day, certificates, consent and audit events.
-- `docs/V12-API.md` — backend API contract, permission boundaries, AI guardrails, privacy/retention and production release checklist.
-- `tests/smoke-test.mjs` — dependency-free static release smoke checks.
-- `admin.html` — legacy facilitator console illustration.
-- `feedback.html` — external validation workflow.
-
-### Important boundary — not production-ready for real learner data
-The public GitHub Pages build is a **static demo**. It does not provide real authentication, server-side permissions, shared cohort state, secure file uploads, connected AI, payments, email, or real certificate issuance. Learner demo data is stored in browser localStorage and must not contain confidential or sensitive information. The facilitator controls on the main page are a workflow simulation, not a secure admin portal.
-
-Before live launch, connect provider-managed authentication, enforce RBAC and row-level access in the backend, configure private file storage and malware scanning, implement audited server-side review/certification APIs, publish privacy and retention terms, test cross-tenant access and certificate bypass attempts, and complete accessibility/security/backup checks. See `docs/V12-API.md`.
+GitHub Pages serves the static frontend. `.github/workflows` runs release checks and Pages deployment. Check both workflow runs after merging to `main`; Pages deployment can finish after the commit is available. See [CHANGELOG.md](./CHANGELOG.md) and [docs/PRODUCTION-FOUNDATION.md](./docs/PRODUCTION-FOUNDATION.md).

@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {scoreDiagnostic} from '../src/scoring.js';
+import {certificationGates,transitionEvidence,validateSubmission,isCertificationReady} from '../src/workflow.js';
+const answers={dependency:2,ownership:4,systems:3,transfer:4,scale:5,continuity:3};
+test('diagnostic validates range and routes the lowest dimension',()=>{assert.equal(scoreDiagnostic(answers).pathway,'system-builder');assert.throws(()=>scoreDiagnostic({...answers,scale:6}),/integer/)});
+test('diagnostic tie is stable in documented dimension order',()=>{assert.equal(scoreDiagnostic({...answers,dependency:1,systems:1}).pathway,'system-builder')});
+test('ownership and strategic constraints select their intended routes',()=>{assert.equal(scoreDiagnostic({...answers,dependency:4,ownership:1}).pathway,'multiplier-leader');assert.equal(scoreDiagnostic({...answers,dependency:4,ownership:4,systems:4,transfer:4,scale:1,continuity:4}).pathway,'strategic-leader')});
+test('evidence transitions require review and rationale',()=>{const item={status:'submitted',id:'e1'};assert.throws(()=>transitionEvidence(item,'approved'),/Invalid/);const review=transitionEvidence(item,'in_review');assert.throws(()=>transitionEvidence(review,'revise'),/note/);assert.equal(transitionEvidence(review,'revise','Add baseline').status,'revise')});
+test('submissions need an artefact and useful measurable impact',()=>{assert.equal(validateSubmission({artefact:'Map',impact:'Before was 8 hours; now 3 hours weekly.'}),true);assert.equal(validateSubmission({artefact:'Map',impact:'Done'}),false)});
+test('certification stays gated on every required proof',()=>{const record={diagnostic:{},completedModules:Array(12).fill('m'),evidence:[{status:'approved'},{status:'approved'},{status:'approved'}],challenge:{status:'approved'},demoDay:'approved'};assert.deepEqual(certificationGates(record),{diagnostic:true,modules:true,approvedEvidence:true,challenge:true,demoDay:true});assert.equal(isCertificationReady(record),true);record.evidence[0].status='submitted';assert.equal(isCertificationReady(record),false)});

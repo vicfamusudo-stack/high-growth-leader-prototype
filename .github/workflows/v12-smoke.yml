@@ -1,4 +1,4 @@
-name: V12 static smoke tests
+name: V13 domain and structure checks
 on:
   push:
     branches: ["main"]
@@ -8,21 +8,12 @@ on:
 permissions:
   contents: read
 jobs:
-  smoke:
+  checks:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: node tests/smoke-test.mjs
-      - name: Validate inline JavaScript syntax
-        run: |
-          node - <<'NODE'
-          const fs = require('fs');
-          const html = fs.readFileSync('index.html','utf8');
-          const scripts = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m=>m[1]);
-          if (!scripts.length) throw new Error('No inline script found');
-          for (const script of scripts) new Function(script);
-          console.log('Inline JavaScript syntax is valid');
-          NODE
+      - run: node --test tests/*.test.mjs
+      - run: node scripts/check.mjs
