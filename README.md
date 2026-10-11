@@ -112,3 +112,30 @@ A production release still needs:
 - `feedback.html` — external reviewer experience
 
 The existing GitHub Pages workflow deploys the repository as a static site.
+
+
+## V12 — Product MVP architecture (current main experience)
+
+The homepage `index.html` is now the V12 adaptive leadership system prototype. The previous V11 homepage is preserved at `v11.html`.
+
+### V12 learner experience
+- Six-dimension leadership diagnostic and explainable heuristic pathway routing
+- System Builder, Multiplier Leader and Strategic Leader sequences
+- Profile, growth outcome, next-best-action dashboard and 12-module academy
+- Evidence register with explicit submitted/review/approved/revise/rejected states
+- 30-Day Step-Away Challenge™ and Demo Day submission
+- Certification gate preview, learner-record JSON export and local-data deletion
+- Local consent preference demonstration and privacy boundary disclosure
+- Responsive, keyboard-focusable navigation and form controls
+
+### V12 product architecture pack
+- `backend/schema.sql` — PostgreSQL schema for identity profiles, cohorts, memberships, versioned diagnostics, evidence, challenge, Demo Day, certificates, consent and audit events.
+- `docs/V12-API.md` — backend API contract, permission boundaries, AI guardrails, privacy/retention and production release checklist.
+- `tests/smoke-test.mjs` — dependency-free static release smoke checks.
+- `admin.html` — legacy facilitator console illustration.
+- `feedback.html` — external validation workflow.
+
+### Important boundary — not production-ready for real learner data
+The public GitHub Pages build is a **static demo**. It does not provide real authentication, server-side permissions, shared cohort state, secure file uploads, connected AI, payments, email, or real certificate issuance. Learner demo data is stored in browser localStorage and must not contain confidential or sensitive information. The facilitator controls on the main page are a workflow simulation, not a secure admin portal.
+
+Before live launch, connect provider-managed authentication, enforce RBAC and row-level access in the backend, configure private file storage and malware scanning, implement audited server-side review/certification APIs, publish privacy and retention terms, test cross-tenant access and certificate bypass attempts, and complete accessibility/security/backup checks. See `docs/V12-API.md`.
